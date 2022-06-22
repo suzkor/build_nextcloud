@@ -67,3 +67,6 @@ vi /etc/default/ddclient
 systemctl restart ddclient.service
 systemctl enable ddclient.service
 ```
+
+## 問題点
+自宅からアクセスするとinternal->globalできなくてダメ（NATループバック・ヘアピンNAT）
