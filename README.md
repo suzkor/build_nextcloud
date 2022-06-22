@@ -62,5 +62,7 @@ nextcloud.gongtree.net
 EOF
 ddclient -daemon=0 -verbose
 vi /etc/default/ddclient
+# run_ipup="false"
+# run_daemon="true"
 systemctl restart ddclient.service
 ```
