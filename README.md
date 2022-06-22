@@ -60,4 +60,7 @@ login={generated-username}
 password={generated-password}
 nextcloud.gongtree.net
 EOF
+ddclient -daemon=0 -verbose
+vi /etc/default/ddclient
+systemctl restart ddclient.service
 ```
