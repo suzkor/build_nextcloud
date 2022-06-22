@@ -26,6 +26,15 @@ offline専用
 ```
 qemu-img create /var/lib/libvirt/images/nextcloud-vdb.img 5T
 ```
+## その他VM内設定
+
+```
+# internalからのsshのみ許可
+ufw allow from 192.168.0.0/16 to any port 22
+ufw enable
+# cloud-init毎回走らんでええ
+touch /etc/cloud/cloud-init.disabled
+```
 
 ## Domain
 
