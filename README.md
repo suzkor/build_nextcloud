@@ -65,4 +65,5 @@ vi /etc/default/ddclient
 # run_ipup="false"
 # run_daemon="true"
 systemctl restart ddclient.service
+systemctl enable ddclient.service
 ```
