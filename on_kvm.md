@@ -1,20 +1,33 @@
 # nextcloud on kvm
 
+## install KVM
+
+```
+apt install -y qemu qemu-kvm libvirt-daemon libvirt-clients bridge-utils virt-manager
+reboot
+
+```
+
 ## VM install
 
 適宜変更
 installは適当に
 storageは後で作ってマウント
 ```
+--disk path=/var/lib/libvirt/images/test.img,size=20 \
+--location /var/lib/libvirt/images/iso/ubuntu-20.04.4-live-server-amd64.iso,kernel=casper/vmlinuz,initrd=casper/initrd \
+
+--console pty,target_type=serial \
+```
+```
 virt-install \
 --name ubuntu2004 \
 --ram 4096 \
---disk path=/var/lib/libvirt/images/test.img,size=20 \
 --vcpus 2 --os-variant ubuntu20.04 \
 --network bridge=br0 \
 --graphics none \
---console pty,target_type=serial \
---location /var/lib/libvirt/images/iso/ubuntu-20.04.4-live-server-amd64.iso,kernel=casper/vmlinuz,initrd=casper/initrd \
+--file /var/lib/libvirt/images/nextcloud.img \
+--cdrom /var/lib/libvirt/images/userdata.iso \
 --extra-args 'console=ttyS0,115200n8 serial'
 ```
 ## Disk attach
