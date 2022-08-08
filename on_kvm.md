@@ -60,3 +60,18 @@ touch /etc/cloud/cloud-init.disabled
 
 ## 問題点
 自宅からアクセスするとinternal->globalできなくてダメ（NATループバック・ヘアピンNAT）
+->リバースプロキシ構築(ConoHa)
+
+## datadir
+外付けしか使えん。`/media`以下にdatadir作成して下記。
+- https://askubuntu.com/questions/882625/nextcloud-snap-with-data-directory-on-external-harddrive
+```
+snap stop nextcloud
+snap connect nextcloud:removable-media
+vim /var/snap/nextcloud/current/nextcloud/config/config.php
+mv /var/snap/nextcloud/common/nextcloud/data /media/nextcloud/data
+snap start nextcloud
+```
+
+
+
